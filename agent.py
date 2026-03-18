@@ -74,7 +74,6 @@ Always mention the order item name (not just the ID) when referring to an order.
 
 
 def run_tool(name: str, arguments: dict) -> str:
-    """Run whichever tool the model decided to call."""
     if name == "lookup_order":
         return lookup_order(arguments["order_id"])
     elif name == "check_policy":
@@ -85,10 +84,6 @@ def run_tool(name: str, arguments: dict) -> str:
 
 
 def chat(conversation_history: list, user_message: str) -> str:
-    """
-    Send a message and get a response.
-    conversation_history keeps the full chat so the model has memory.
-    """
     conversation_history.append({
         "role": "user",
         "content": user_message
